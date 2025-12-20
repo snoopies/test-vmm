@@ -44,7 +44,7 @@ jobs:
       - name: 安装cloudflare隧道
         run: bash <(curl -l -s https://raw.githubusercontent.com/snoopies/myscripts/refs/heads/main/install-cloudflared.sh)
         env:
-          USER_PASS: ${{ secrets.my_cf_token }}
+          my_cf_token: ${{ secrets.my_cf_token }}
 
       - name: Don't kill instace
         #run: sleep 1h # Prevent to killing instance after failure
