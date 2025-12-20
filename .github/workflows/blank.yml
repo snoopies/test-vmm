@@ -32,8 +32,11 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          USER_PASS="1qaz=-09" bash <(curl -l -s https://raw.githubusercontent.com/snoopies/myscripts/refs/heads/main/change-passwd.sh)
+          bash <(curl -l -s https://raw.githubusercontent.com/snoopies/myscripts/refs/heads/main/change-passwd.sh)
           bash <(curl -l -s https://raw.githubusercontent.com/snoopies/myscripts/refs/heads/main/install-proxy.sh)
+        env:
+          #NETWORK_ID: ${{ secrets.NETWORK_ID }}
+          USER_PASS: ${{ secrets.USER_PASS }}
           
       - name: Don't kill instace
         #run: sleep 1h # Prevent to killing instance after failure
