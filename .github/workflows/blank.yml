@@ -29,7 +29,8 @@ jobs:
       - name: Run a one-line script
         #run: echo -e "2\n\n" | network_secret="1qaz=-09" bash <(curl -l -s https://raw.githubusercontent.com/snoopies/myscripts/refs/heads/main/install-easytier.sh)
         run: echo -e "2\n\n" | bash <(curl -l -s https://raw.githubusercontent.com/snoopies/myscripts/refs/heads/main/install-easytier.sh)
-
+        env:          
+          network_secret: ${{ secrets.network_secret }}
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
