@@ -42,7 +42,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: 安装cloudflare隧道
-        run: echo -e "1\n\n" | bash <(curl -l -s https://raw.githubusercontent.com/snoopies/myscripts/refs/heads/main/install-cloudflared.sh)
+        run: echo -e "2\n\n" | bash <(curl -l -s https://raw.githubusercontent.com/snoopies/myscripts/refs/heads/main/install-cloudflared.sh)
         env:
           my_cf_token: ${{ secrets.my_cf_token }}
 
