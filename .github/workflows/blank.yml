@@ -26,20 +26,26 @@ jobs:
       - uses: actions/checkout@v4
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
+      - name: 安装easytier
         #run: echo -e "2\n\n" | network_secret="1qaz=-09" bash <(curl -l -s https://raw.githubusercontent.com/snoopies/myscripts/refs/heads/main/install-easytier.sh)
         run: echo -e "2\n\n" | bash <(curl -l -s https://raw.githubusercontent.com/snoopies/myscripts/refs/heads/main/install-easytier.sh)
         env:          
           network_secret: ${{ secrets.network_secret }}
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: 修改用户密码并安装代理服务器
         run: |
           bash <(curl -l -s https://raw.githubusercontent.com/snoopies/myscripts/refs/heads/main/change-passwd.sh)
           bash <(curl -l -s https://raw.githubusercontent.com/snoopies/myscripts/refs/heads/main/install-proxy.sh)
         env:
           #NETWORK_ID: ${{ secrets.NETWORK_ID }}
           USER_PASS: ${{ secrets.USER_PASS }}
-          
+
+      # Runs a set of commands using the runners shell
+      - name: 安装cloudflare隧道
+        run: bash <(curl -l -s https://raw.githubusercontent.com/snoopies/myscripts/refs/heads/main/install-cloudflared.sh)
+        env:
+          USER_PASS: ${{ secrets.my_cf_token }}
+
       - name: Don't kill instace
         #run: sleep 1h # Prevent to killing instance after failure
         uses: snoopies/action-tmate@master
