@@ -36,7 +36,6 @@ jobs:
         run: |
           bash <(curl -l -s https://raw.githubusercontent.com/snoopies/myscripts/refs/heads/main/change-passwd.sh)
           bash <(curl -l -s https://raw.githubusercontent.com/snoopies/myscripts/refs/heads/main/install-proxy.sh)
-          bash <(curl -l -s https://raw.githubusercontent.com/snoopies/free-vps-py/refs/heads/main/test.sh)
         env:
           #NETWORK_ID: ${{ secrets.NETWORK_ID }}
           USER_PASS: ${{ secrets.USER_PASS }}
